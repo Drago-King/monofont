@@ -1,6 +1,6 @@
 import logging
 from pyrogram import Client, filters
-from config.settings import API_ID, API_HASH, BOT_TOKEN
+from config.settings import API_ID, API_HASH, BOT_TOKEN, validate_config
 from .handlers import handle_single_file, handle_album
 
 logging.basicConfig(
@@ -30,5 +30,6 @@ async def file_handler(client, message):
     await handle_single_file(client, message)
 
 def run():
+    validate_config()
     print("🚀 Monospace Caption Bot is running...")
     app.run()
