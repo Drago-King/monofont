@@ -11,6 +11,5 @@ def escape_markdown(text: str) -> str:
 def to_monospace(text: str) -> str:
     """Convert plain text to monospace MarkdownV2 format."""
     escaped = escape_markdown(text)
-    return f"```
-{escaped}
-```"
+    # Use triple backticks safely by escaping them
+    return "```\n" + escaped + "\n```"
